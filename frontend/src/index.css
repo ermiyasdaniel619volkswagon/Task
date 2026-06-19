@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #6366f1;
+  --font-size: 16px;
+  --border-radius: 0.5rem;
+  --font-family: Inter, sans-serif;
+  --spacing-scale: 1;
+  --animation-duration: 0.3s;
+}
+
+body {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  transition: filter 0.2s ease;
+}
+
+/* Apply border-radius to common elements */
+.card,
+.btn-primary,
+.input-field,
+.rounded-xl,
+.rounded-2xl {
+  border-radius: var(--border-radius) !important;
+}
+
+/* Scale spacing for compact mode */
+* {
+  --spacing: calc(1rem * var(--spacing-scale));
+}
+
+/* Use transition duration variable */
+.transition-all,
+.transition-colors,
+.transition-transform {
+  transition-duration: var(--animation-duration) !important;
+}
+
+/* Primary color utility classes */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+.text-primary {
+  color: var(--primary-color) !important;
+}
+.border-primary {
+  border-color: var(--primary-color) !important;
+}
+.hover\:bg-primary:hover {
+  background-color: var(--primary-color) !important;
+}
+.hover\:text-primary:hover {
+  color: var(--primary-color) !important;
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+
+  .dark * {
+    @apply border-gray-800;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+  }
+
+  .dark body {
+    @apply bg-gray-950 text-gray-100;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200;
+  }
+
+  .dark .card {
+    @apply bg-gray-900 border-gray-800;
+  }
+
+  .btn-primary {
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 px-5 rounded-xl transition-all duration-200 shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-xl transition-all duration-200;
+  }
+
+  .dark .btn-secondary {
+    @apply bg-gray-800 hover:bg-gray-700 text-gray-300;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-300 focus:border-indigo-400 outline-none transition-all duration-200 bg-white text-gray-900;
+  }
+
+  .dark .input-field {
+    @apply border-gray-700 bg-gray-800 text-gray-100 focus:ring-indigo-600 focus:border-indigo-500;
+  }
+}
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    @apply bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-full hover:bg-gray-400;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-gray-600 hover:bg-gray-500;
+  }
+}
