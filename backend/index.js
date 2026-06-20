@@ -173,7 +173,7 @@ const allowedOrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
   "https://task-mangment-dashbord-tzr4.vercel.app",
-  "https://task-ecru-xi-35.vercel.app"
+  "https://task-ezu8.vercel.app/"
 ];
 
 app.use(
